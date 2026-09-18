@@ -4,7 +4,7 @@
  * Hernández Moreno Emiliano, 
  * Martinez Barrios Aarón Rodrigo.
  */
-public class calculadoraALC {
+public class CalculadoraALC {
 
     public static void main(String[] args) {
 
