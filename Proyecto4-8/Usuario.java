@@ -16,32 +16,38 @@ public class Usuario extends PersonaP4{
     private boolean activo;
 
     //Constructores 
+    // Constructores 
+    
+    // 1. Constructor vacío (Petición 1 del profe)
     public Usuario(){}
 
+    // 2. Constructor (Petición 2 del profe) -> Firma: (int, String, String, boolean)
     public Usuario(int id, String nombre, String correo, boolean activo){
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.activo = activo;
     }
-    public Usuario(int id, boolean activo, String telefonoCelular, String nombre){
+    
+    // 3. Constructor (Petición 3 del profe) 
+    // *CAMBIO:* Movimos el 'int id' al final para que la firma sea (String, String, boolean, int) y Java no marque error.
+    public Usuario(String nombre, String telefonoCelular, boolean activo, int id){
         this.id = id;
         this.nombre = nombre;
         this.telefonoCelular = telefonoCelular;
         this.activo = activo;
     }
-    public Usuario(int id, boolean activo, String telefonoCelular, int librosPrestados){
-        this.id = id;
-        this.librosPrestados = librosPrestados;
-        this.telefonoCelular = telefonoCelular;
-        this.activo = activo;
-    }
-    public Usuario(String correo, String telefonoCelular, boolean activo, int id){
+    
+    // 4. Constructor
+    // Asumimos que quería juntar correo y teléfono. 
+    // Firma: (boolean, int, String, String)
+    public Usuario(boolean activo, int id, String correo, String telefonoCelular){
         this.id = id;
         this.correo = correo;
         this.telefonoCelular = telefonoCelular;
         this.activo = activo;
     }
+
 
     //Metodos
     public void solicitarPrestamo(){
