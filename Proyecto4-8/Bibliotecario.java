@@ -8,18 +8,35 @@
  */
 public class Bibliotecario extends PersonaP4 {
     
+    // 5.2 Atributos
     private String turno;
+    private double salario;
 
+    // Métodos especiales: Constructores
     public Bibliotecario() {}
 
-    public Bibliotecario(int id, String nombre, String correo, String turno) {
+    public Bibliotecario(int id, String nombre, String correo, String turno, double salario) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.turno = turno;
+        this.salario = salario;
     }
 
-    // Implementación obligatoria del método abstracto de PersonaP4
+    // 5.3 Métodos operativos
+    public void autorizarPrestamo() {
+        System.out.println("El bibliotecario " + nombre + " ha autorizado el préstamo del libro.");
+    }
+
+    public void registrarLibro() {
+        System.out.println("El bibliotecario " + nombre + " ha registrado un nuevo libro en el sistema.");
+    }
+
+    public void eliminarLibro() {
+        System.out.println("El bibliotecario " + nombre + " ha eliminado un libro del catálogo.");
+    }
+
+    // Implementación obligatoria del método abstracto
     @Override 
     public void mostrarInformacion() {
         System.out.println("--- Perfil Bibliotecario ---");
@@ -27,8 +44,23 @@ public class Bibliotecario extends PersonaP4 {
         System.out.println("Nombre: " + nombre);
         System.out.println("Correo: " + correo);
         System.out.println("Turno: " + turno);
+        System.out.println("Salario: $" + salario);
     }
 
-    public String getTurno() { return turno; }
-    public void setTurno(String turno) { this.turno = turno; }
+    // Métodos especiales: Getters y Setters
+    public String getTurno() { 
+        return turno; 
+    }
+    
+    public void setTurno(String turno) { 
+        this.turno = turno; 
+    }
+    
+    public double getSalario() { 
+        return salario; 
+    }
+    
+    public void setSalario(double salario) { 
+        this.salario = salario; 
+    }
 }
