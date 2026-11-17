@@ -1,3 +1,13 @@
+/** Práctica 11: Manejo de Archivos
+ * Código 1: Principal.java
+ * Fecha: 21 de Noviembre del 2026
+ * Código realizado por: Corona Palacios Diego André,
+ * De la Cruz Flores Natalia Michelle,
+ * Hernández Moreno Emiliano, 
+ * Martinez Barrios Aarón Rodrigo.
+ * Programa que engloba la función de la agenda y la reservacion. 
+ */
+
 // Importamos la excepción específica para detectar fechas mal escritas
 import java.time.format.DateTimeParseException;
 // Importamos la clase Scanner para leer lo que el usuario escribe en el teclado
