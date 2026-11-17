@@ -1,3 +1,13 @@
+/** Práctica 11: Manejo de Archivos
+ * Código 1: Clase GestorAgenda.java
+ * Fecha: 21 de Noviembre del 2026
+ * Código realizado por: Corona Palacios Diego André,
+ * De la Cruz Flores Natalia Michelle,
+ * Hernández Moreno Emiliano, 
+ * Martinez Barrios Aarón Rodrigo.
+ * Programa que muestra el cómo funciona una agenda. 
+ */
+
 // Importamos todas las clases de entrada/salida (File, FileWriter, BufferedReader, IOException, etc.)
 import java.io.*;
 
