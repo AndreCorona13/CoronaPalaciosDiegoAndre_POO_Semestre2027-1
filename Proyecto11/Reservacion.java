@@ -1,3 +1,13 @@
+/** Práctica 11: Manejo de Archivos
+ * Código 1: Clase Reservacion.java
+ * Fecha: 21 de Noviembre del 2026
+ * Código realizado por: Corona Palacios Diego André,
+ * De la Cruz Flores Natalia Michelle,
+ * Hernández Moreno Emiliano, 
+ * Martinez Barrios Aarón Rodrigo.
+ * Programa que muestra el funcionamiento y validación de la reservacion en la agenda. 
+ */
+
 // Importamos las clases necesarias del paquete java.time para manejar fechas y días
 import java.time.DayOfWeek;
 import java.time.LocalDate;
