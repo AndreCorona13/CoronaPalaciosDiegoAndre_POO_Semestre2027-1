@@ -11,7 +11,9 @@
 // Importamos las clases necesarias del paquete java.time para manejar fechas y días
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 
 // Declaramos la clase pública Reservacion que servirá como modelo de datos
 public class Reservacion {
@@ -30,28 +32,35 @@ public class Reservacion {
 
     // Constructor que recibe los datos básicos al crear una nueva reservación
     public Reservacion(String fecha, String hora, String cliente) {
-        // Asignamos el parámetro fecha al atributo de la clase
-        this.fecha = fecha;
-        // Asignamos el parámetro hora al atributo de la clase
-        this.hora = hora;
-        // Asignamos el parámetro cliente al atributo de la clase
-        this.cliente = cliente;
-        // Marcamos como false (no disponible) porque al crearse ya ocupa el lugar
-        this.disponible = false;
-        // Llamamos al método interno para calcular el día de la semana y del año
-        calcularDatosCalendario(fecha);
+
+    this.fecha = fecha;
+
+    // Validar que la hora sea correcta
+    DateTimeFormatter formatoHora =
+        DateTimeFormatter.ofPattern("HH:mm")
+        .withResolverStyle(ResolverStyle.STRICT);
+
+    LocalTime.parse(hora, formatoHora);
+
+    this.hora = hora;
+    this.cliente = cliente;
+    this.disponible = false;
+
+    calcularDatosCalendario(fecha);
     }
 
     // Método privado que extrae información del calendario a partir de una fecha en texto
     private void calcularDatosCalendario(String fechaStr) {
-        // Definimos el formato esperado de la fecha (día/mes/año)
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        // Convertimos el texto recibido en un objeto LocalDate real
-        LocalDate date = LocalDate.parse(fechaStr, formatter);
-        // Obtenemos qué número de día del año es esa fecha y lo guardamos
-        this.diaDelAnio = date.getDayOfYear();
-        // Obtenemos el día de la semana en inglés y lo traducimos al español
-        this.diaSemana = traducirDia(date.getDayOfWeek());
+
+    DateTimeFormatter formatter =
+        DateTimeFormatter.ofPattern("dd/MM/uuuu")
+        .withResolverStyle(ResolverStyle.STRICT);
+
+    LocalDate date = LocalDate.parse(fechaStr, formatter);
+
+    this.diaDelAnio = date.getDayOfYear();
+
+    this.diaSemana = traducirDia(date.getDayOfWeek());
     }
 
     // Método privado para convertir la constante DayOfWeek (en inglés) a texto en español
