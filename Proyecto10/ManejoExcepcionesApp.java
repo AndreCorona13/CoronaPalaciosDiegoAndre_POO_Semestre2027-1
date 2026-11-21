@@ -7,7 +7,6 @@
  * Martinez Barrios Aarón Rodrigo.
  * Programa que engloba todas las demostraciones de excepciones. 
  */
-     
 import java.util.Scanner; /**libreria para que el usuario pueda interactuar con el programa  */
 import java.util.InputMismatchException;/** libreria para mostrar las excepciones */
 
