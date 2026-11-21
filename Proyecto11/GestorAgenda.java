@@ -42,7 +42,7 @@ public class GestorAgenda {
     }
 
     // Método público que revisa el archivo para saber si una fecha y hora están libres
-    public boolean estaDisponible(String fecha, String hora) {
+    public boolean estaDisponible(String fecha, String hora) throws IOException {
         // Abrimos un flujo de lectura línea por línea sobre nuestro archivo CSV
         try (BufferedReader br = new BufferedReader(new FileReader(NOMBRE_ARCHIVO))) {
             // Variable temporal para almacenar cada línea que vayamos leyendo
@@ -71,8 +71,7 @@ public class GestorAgenda {
                 }
             }
         } catch (IOException e) {
-            // Capturamos cualquier error que ocurra durante la lectura del archivo
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            throw e;
         }
         // Si terminó de revisar todo el archivo sin encontrar coincidencias, está disponible
         return true;
@@ -117,8 +116,8 @@ public class GestorAgenda {
                 System.out.println(linea.replace(",", " \t| "));
             }
         } catch (IOException e) {
-            // Manejamos cualquier error de lectura
-            System.out.println("Error al mostrar la agenda: " + e.getMessage());
+            throw new RuntimeException(
+                "No se pudo crear el archivo de agenda: " + e.getMessage());
         }
         // Imprimimos una línea de cierre
         System.out.println("----------------------------------\n");
